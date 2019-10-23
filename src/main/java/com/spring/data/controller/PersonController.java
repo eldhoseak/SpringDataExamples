@@ -29,8 +29,14 @@ public class PersonController {
 		return personService.getAllPersons();
 	}
 
-	@RequestMapping(value = "/person", method = RequestMethod.POST)
+	@RequestMapping(value = "/person", method = RequestMethod.PUT)
 	public HttpStatus insertPersone(@RequestBody Person person) {
 		return personService.addPerson(person) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
 	}
+
+	@RequestMapping(value = "/person", method = RequestMethod.POST)
+	public HttpStatus updatePersone(@RequestBody Person person) {
+		return personService.updatePerson(person) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
+	}
 }
+
